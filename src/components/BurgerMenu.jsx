@@ -20,6 +20,7 @@ function BurgerMenu() {
   useEffect(() => {
     if (!isOpen) return;
     function handleClickOutside(e) {
+      if(e.target.closest('[data-keep-menu]')) return
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsOpen(false);
       }

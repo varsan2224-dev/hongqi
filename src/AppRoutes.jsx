@@ -1,26 +1,27 @@
-import { Route, Routes } from "react-router-dom"
-import Home from "./components/Home"
-import Products from "./components/Products"
-import About from "./components/About"
-import Contacts from "./components/Contacts"
-import Layout from "./Layout"
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
 
-function AppRoutes(){
+const Home     = lazy(() => import("./components/Home"));
+const Products = lazy(() => import("./components/Products"));
+const About    = lazy(() => import("./components/About"));
+const Contacts = lazy(() => import("./components/Contacts"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
-
-     return(
-        <div>
-            <Routes>
-                <Route element={<Layout />}>
-                <Route index element={<Home />}/>
-                <Route path="/products" element={<Products />}/>
-                <Route path="/about" element={<About />}/>
-                <Route path="/contacts" element={<Contacts />}/>
-                <Route path="*" />
-                </Route>
-            </Routes>
-        </div>
-     )
+function AppRoutes() {
+  return (
+    <div>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </div>
+  );
 }
 
-export default AppRoutes
+export default AppRoutes;
