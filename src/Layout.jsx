@@ -16,7 +16,7 @@ function Layout() {
   const mobileWidth = width < 768;
   const scrolled = useScrolled();
 
-  return (
+  return (  
     <div>
       <div className="relative min-h-screen flex flex-col">
         <nav
